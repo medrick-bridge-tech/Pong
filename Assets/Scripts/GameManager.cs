@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameStates
 {
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
             GameState = GameStates.Playing;
         }
 
-        if (GameState == GameStates.ReadyToStart)
+        if (GameState != GameStates.Playing)
         {
             _paddle.ResetPosition();
         }
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        GameState = GameStates.End;
         _winCanvas.SetActive(true);
         
         if (_scoreManager.playerScore > _scoreManager.aiScore)
@@ -53,5 +55,10 @@ public class GameManager : MonoBehaviour
         {
             _winText.text = "You lose!";
         }
+    }
+
+    public void OnRestartButtonClicked()
+    {
+        SceneManager.LoadScene("Game");
     }
 }

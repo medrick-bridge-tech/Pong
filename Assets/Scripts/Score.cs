@@ -37,7 +37,7 @@ public class Score : MonoBehaviour
             _ball.ResetPosition();
             _ball.StopMoving();
 
-            if (_playerScore == 2 || _aiScore == 2)
+            if (_playerScore == 11 || _aiScore == 11)
             {
                 _gameManager.EndGame();
             }
