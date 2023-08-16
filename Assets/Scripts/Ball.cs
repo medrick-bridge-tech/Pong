@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float _startingSpeed;
-
-    private bool _gameHasStarted;
+    [SerializeField] private GameManager _gameManager;
+    
     private float _randomX;
     private float _randomY;
     private Vector2 _randomVector;
@@ -15,24 +15,34 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
-        _randomX = Random.Range(-1f, 1f);
-        _randomY = Random.Range(-1f, 1f);
-        _randomVector = new Vector2(_randomX, _randomY).normalized;
-
         _ballRigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (!_gameHasStarted && Input.GetKeyDown(KeyCode.Space))
-        {
-            StartMoving();
-        }
+        
     }
 
-    private void StartMoving()
+    public void ResetPosition()
     {
-        _gameHasStarted = true;
+        transform.position = Vector3.zero;
+    }
+
+    public void StopMoving()
+    {
+        _ballRigidbody.velocity = Vector2.zero;
+    }
+    
+    public void UpdateRandomVector()
+    {
+        _randomX = Random.Range(-1f, 1f);
+        _randomY = Random.Range(-1f, 1f);
+        _randomVector = new Vector2(_randomX, _randomY).normalized;
+    }
+
+    public void StartMoving()
+    {
+        _gameManager.GameState = GameStates.Playing;
         _ballRigidbody.velocity = _randomVector * _startingSpeed;
     }
 }

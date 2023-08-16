@@ -23,9 +23,12 @@ public class Paddle : MonoBehaviour
 
     private void VerticalMove()
     {
-        var verticalMovement = Input.GetAxis("Vertical") * _verticalSpeed * Time.deltaTime;
+        if (_gameManager.GameState == GameStates.Playing)
+        {
+            var verticalMovement = Input.GetAxis("Vertical") * _verticalSpeed * Time.deltaTime;
         
-        transform.position = new Vector3(transform.position.x, 
-            Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);
+            transform.position = new Vector3(transform.position.x, 
+                Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);
+        }
     }
 }

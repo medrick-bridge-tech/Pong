@@ -7,6 +7,9 @@ public class Score : MonoBehaviour
 {
     private int _playerScore;
     private int _aiScore;
+
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private Ball _ball;
     
     
     void Start()
@@ -23,6 +26,10 @@ public class Score : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball")
         {
+            _gameManager.GameState = GameStates.ReadyToStart;
+            _ball.ResetPosition();
+            _ball.StopMoving();
+            
             var ballRigidbody = other.gameObject.GetComponent<Rigidbody2D>();
             if (ballRigidbody.velocity.x < 0f)
             {
