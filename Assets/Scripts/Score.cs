@@ -26,10 +26,6 @@ public class Score : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball")
         {
-            _gameManager.GameState = GameStates.ReadyToStart;
-            _ball.ResetPosition();
-            _ball.StopMoving();
-            
             var ballRigidbody = other.gameObject.GetComponent<Rigidbody2D>();
             if (ballRigidbody.velocity.x < 0f)
             {
@@ -41,6 +37,10 @@ public class Score : MonoBehaviour
                 _aiScore++;
                 Debug.Log($"AI score: {_aiScore}");
             }
+            
+            _gameManager.GameState = GameStates.ReadyToStart;
+            _ball.ResetPosition();
+            _ball.StopMoving();
         }
     }
 }
