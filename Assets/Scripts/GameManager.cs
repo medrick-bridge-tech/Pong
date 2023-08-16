@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum GameStates
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Ball _ball;
     [SerializeField] private Paddle _paddle;
+    [SerializeField] private GameObject _winCanvas;
+    [SerializeField] private TextMeshProUGUI _winText;
+    [SerializeField] private Score _score;
     
     
     void Start()
@@ -35,5 +39,10 @@ public class GameManager : MonoBehaviour
         {
             _paddle.ResetPosition();
         }
+    }
+
+    public void EndGame()
+    {
+        _winCanvas.SetActive(true);
     }
 }

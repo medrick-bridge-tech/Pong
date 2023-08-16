@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    private int _playerScore;
-    private int _aiScore;
+    public int _playerScore { get; set; }
+    public int _aiScore { get; set; }
 
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Ball _ball;
     [SerializeField] private TextMeshProUGUI _playerScoreText;
     [SerializeField] private TextMeshProUGUI _aiScoreText;
-
     
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ball")
@@ -34,6 +34,11 @@ public class Score : MonoBehaviour
             _gameManager.GameState = GameStates.ReadyToStart;
             _ball.ResetPosition();
             _ball.StopMoving();
+
+            if (_playerScore == 11 || _aiScore == 11)
+            {
+                _gameManager.EndGame();
+            }
         }
     }
 }
