@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Paddle _paddle;
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private TextMeshProUGUI _winText;
-    [SerializeField] private Score _score;
-    
-    
+    [SerializeField] private ScoreManager _scoreManager;
+
+
     void Start()
     {
         GameState = GameStates.ReadyToStart;
@@ -44,5 +44,14 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _winCanvas.SetActive(true);
+        
+        if (_scoreManager.playerScore > _scoreManager.aiScore)
+        {
+            _winText.text = "You win!";
+        }
+        else
+        {
+            _winText.text = "You lose!";
+        }
     }
 }
