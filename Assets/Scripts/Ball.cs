@@ -18,11 +18,6 @@ public class Ball : MonoBehaviour
         _ballRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void ResetPosition()
     {
         transform.position = Vector3.zero;

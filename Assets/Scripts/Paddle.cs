@@ -9,13 +9,8 @@ public class Paddle : MonoBehaviour
     
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private GameManager _gameManager;
-    
-    
-    void Start()
-    {
-        
-    }
 
+    
     void Update()
     {
         VerticalMove();

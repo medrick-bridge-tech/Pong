@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -10,18 +11,10 @@ public class Score : MonoBehaviour
 
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Ball _ball;
-    
-    
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI _playerScoreText;
+    [SerializeField] private TextMeshProUGUI _aiScoreText;
 
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ball")
@@ -30,12 +23,12 @@ public class Score : MonoBehaviour
             if (ballRigidbody.velocity.x < 0f)
             {
                 _playerScore++;
-                Debug.Log($"Player score: {_playerScore}");
+                _playerScoreText.text = _playerScore.ToString();
             }
             else
             {
                 _aiScore++;
-                Debug.Log($"AI score: {_aiScore}");
+                _aiScoreText.text = _aiScore.ToString();
             }
             
             _gameManager.GameState = GameStates.ReadyToStart;
