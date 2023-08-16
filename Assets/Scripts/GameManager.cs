@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameStates GameState { get; set; }
 
     [SerializeField] private Ball _ball;
+    [SerializeField] private Paddle _paddle;
     
     
     void Start()
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
             _ball.UpdateRandomVector();
             _ball.StartMoving();
             GameState = GameStates.Playing;
+        }
+
+        if (GameState == GameStates.ReadyToStart)
+        {
+            _paddle.ResetPosition();
         }
     }
 }

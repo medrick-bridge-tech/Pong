@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
@@ -30,8 +32,8 @@ public class Ball : MonoBehaviour
     
     public void UpdateRandomVector()
     {
-        _randomX = Random.Range(-1f, 1f);
-        _randomY = Random.Range(-1f, 1f);
+        _randomX = Random.Range(-10f, 10f);
+        _randomY = Random.Range(-0.1f, 0.1f);
         _randomVector = new Vector2(_randomX, _randomY).normalized;
     }
 

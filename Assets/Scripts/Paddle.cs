@@ -26,4 +26,9 @@ public class Paddle : MonoBehaviour
                 Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);
         }
     }
+    
+    public void ResetPosition()
+    {
+        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+    }
 }
