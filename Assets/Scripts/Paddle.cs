@@ -8,6 +8,7 @@ public class Paddle : MonoBehaviour
     private const float MAX_Y_POS = 3.93f;
     
     [SerializeField] private float _verticalSpeed;
+    [SerializeField] private GameManager _gameManager;
     
     
     void Start()
