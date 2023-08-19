@@ -1,8 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Composites;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
+
 
 public enum GameStates
 {
@@ -20,11 +25,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private TextMeshProUGUI _winText;
     [SerializeField] private ScoreManager _scoreManager;
-
+    
+    
+    
 
     void Start()
     {
         GameState = GameStates.ReadyToStart;
+        
     }
 
     void Update()
