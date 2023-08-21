@@ -284,6 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _verticalSpeed: 5
   _ball: {fileID: 1316101583}
+  isAiActive: 1
+  _gameManager: {fileID: 1388532361}
 --- !u!1 &472472751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1484,7 @@ MonoBehaviour:
   _winCanvas: {fileID: 1518112947}
   _winText: {fileID: 2014497217}
   _scoreManager: {fileID: 630367166}
+  upKey: 0
 --- !u!4 &1388532362
 Transform:
   m_ObjectHideFlags: 0

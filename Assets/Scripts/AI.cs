@@ -9,11 +9,20 @@ public class AI : MonoBehaviour
     
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private Ball _ball;
-    
-
+    [SerializeField] private bool isAiActive;
+    [SerializeField] private GameManager _gameManager;
     private void Update()
     {
-        KeepTrackOfBall();
+        if (isAiActive)
+        {
+            KeepTrackOfBall();    
+        }
+        else
+        {
+            VerticalMove();
+        }
+        
+        
     }
 
     private void KeepTrackOfBall()
@@ -23,5 +32,16 @@ public class AI : MonoBehaviour
         var step = _verticalSpeed * Time.deltaTime;
         var targetPosition = new Vector3(transform.position.x, targetY, transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+    }
+    
+    private void VerticalMove()
+    {
+        if (_gameManager.GameState == GameStates.Playing)
+        {
+            var verticalMovement = Input.GetAxis("Vertical2") * _verticalSpeed * Time.deltaTime;
+        
+            transform.position = new Vector3(transform.position.x, 
+                Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);
+        }
     }
 }
