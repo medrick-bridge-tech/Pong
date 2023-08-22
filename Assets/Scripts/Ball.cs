@@ -14,7 +14,22 @@ public class Ball : MonoBehaviour
     private float _randomY;
     private Vector2 _randomVector;
     private Rigidbody2D _ballRigidbody;
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ParticleChangeColor(other.gameObject,Color.blue);
+        }else if (other.gameObject.CompareTag("Enemy"))
+        {
+            ParticleChangeColor(other.gameObject,Color.red);
+        }
+    }
+
+    void ParticleChangeColor(GameObject particle,Color color)
+    {
+        particle.GetComponent<ParticleSystem>().startColor = color;
+    }
 
     void Start()
     {
@@ -24,17 +39,21 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
+        FlipParticle();
+    }
+
+    private void FlipParticle()
+    {
         if (_ballRigidbody.velocity.x > 0f)
         {
             ballVFX.transform.localScale =
-                new Vector3(ballVFX.transform.localScale.x, ballVFX.transform.localScale.y, -1f);
+                new Vector3(ballVFX.transform.localScale.x, ballVFX.transform.localScale.y, -0.5f);
         }
         else
         {
-            ballVFX.transform.localScale = new Vector3(ballVFX.transform.localScale.x , ballVFX.transform.localScale.y , 1f);
+            ballVFX.transform.localScale = new Vector3(ballVFX.transform.localScale.x , ballVFX.transform.localScale.y , 0.5f);
         }
     }
-
     public void ResetPosition()
     {
         transform.position = Vector3.zero;
