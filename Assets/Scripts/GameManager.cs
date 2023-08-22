@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameStates GameState { get; set; }
 
     [SerializeField] private Ball _ball;
-    [SerializeField] private Paddle _paddle;
+    
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private TextMeshProUGUI _winText;
     [SerializeField] private ScoreManager _scoreManager;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         if (GameState != GameStates.Playing)
         {
-            _paddle.ResetPosition();
+            ResetPosition();
         }
     }
 
@@ -67,5 +67,13 @@ public class GameManager : MonoBehaviour
     public void OnRestartButtonClicked()
     {
         SceneManager.LoadScene("Game");
+    }
+    
+    void ResetPosition()
+    {
+        Paddle paddle = FindObjectOfType<Paddle>();
+        AI aiPaddle = FindObjectOfType<AI>();
+        paddle.transform.position = new Vector3(paddle.transform.position.x, 0f, paddle.transform.position.y);
+        aiPaddle.transform.position = new Vector3(aiPaddle.transform.position.x, 0f, aiPaddle.transform.position.y);
     }
 }

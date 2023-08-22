@@ -28,8 +28,5 @@ public class Paddle : MonoBehaviour
         }
     }
     
-    public void ResetPosition()
-    {
-        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
-    }
+    
 }
