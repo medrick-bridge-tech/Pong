@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private GameSituation gameSituation;
+    [SerializeField] private GameSituation _gameSituation;
 
+    void Start()
+    {
+        _gameSituation = FindObjectOfType<GameSituation>();
+    }
     public void StartGame(bool aiSituation)
     {
-        gameSituation.GetComponent<GameSituation>().SetAISituation(aiSituation);
+        _gameSituation.GetComponent<GameSituation>().SetAISituation(aiSituation);
         SceneManager.LoadScene("Game");
     }
     

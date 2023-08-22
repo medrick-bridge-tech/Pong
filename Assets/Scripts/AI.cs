@@ -15,10 +15,17 @@ public class AI : MonoBehaviour
     
     [SerializeField] private bool isAiActive;
 
+    private float aiDifficulty;
     private void Start()
     {
         gameSituation = FindObjectOfType<GameSituation>();
         isAiActive = gameSituation.GetComponent<GameSituation>().GetAISituation();
+        aiDifficulty = gameSituation.GetComponent<GameSituation>().GetAIDifficulty();
+        if (isAiActive)
+        {
+            _verticalSpeed = _verticalSpeed * aiDifficulty;
+            
+        }
     }
     private void Update()
     {

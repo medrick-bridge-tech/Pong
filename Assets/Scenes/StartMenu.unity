@@ -434,13 +434,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1934605770}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1934605772}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: LoadSettingScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1192,17 +1192,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1934605770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5489453333816589701, guid: 076f37f99f0316f489f7a9298ae48b9b, type: 3}
-  m_PrefabInstance: {fileID: 5489453335716495439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1934605772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5489453333816589699, guid: 076f37f99f0316f489f7a9298ae48b9b, type: 3}
   m_PrefabInstance: {fileID: 5489453335716495439}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934605770}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa8cdd59ccdead149bb51380b0f33e0b, type: 3}
@@ -1215,6 +1210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2677178054552704424, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
+      propertyPath: aiDifficulty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
       propertyPath: m_RootOrder
       value: 4

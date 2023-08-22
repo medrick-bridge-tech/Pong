@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameSituation : MonoBehaviour
 {
     [SerializeField] private bool aiActive;
-    
+    [SerializeField][Range(1f,3f)] private float aiDifficulty = 1f;
     public bool GetAISituation()
     {
         return aiActive;
@@ -17,6 +17,16 @@ public class GameSituation : MonoBehaviour
         aiActive = situation;
     }
     // Start is called before the first frame update
+    public float GetAIDifficulty()
+    {
+        return aiDifficulty;
+    }
+    
+    public void SetAIDifficulty(float difficulty)
+    {
+        aiDifficulty = difficulty;
+    }
+
     
     void Start()
     {
