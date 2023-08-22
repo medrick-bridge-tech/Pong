@@ -3,10 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class GameSituation : MonoBehaviour
 {
+    [Header("AI")]
     [SerializeField] private bool aiActive;
     [SerializeField][Range(1f,3f)] private float aiDifficulty = 1f;
+
+    [Header("Skin")] [SerializeField] private Sprite skin;
+    
     public bool GetAISituation()
     {
         return aiActive;
