@@ -9,8 +9,17 @@ public class AI : MonoBehaviour
     
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private Ball _ball;
-    [SerializeField] private bool isAiActive;
+    
     [SerializeField] private GameManager _gameManager;
+    private GameSituation gameSituation;
+    
+    [SerializeField] private bool isAiActive;
+
+    private void Start()
+    {
+        gameSituation = FindObjectOfType<GameSituation>();
+        isAiActive = gameSituation.GetComponent<GameSituation>().GetAISituation();
+    }
     private void Update()
     {
         if (isAiActive)
@@ -21,9 +30,9 @@ public class AI : MonoBehaviour
         {
             VerticalMove();
         }
-        
-        
     }
+
+    
 
     private void KeepTrackOfBall()
     {

@@ -27,14 +27,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreManager _scoreManager;
     
     
-    
 
     void Start()
     {
         GameState = GameStates.ReadyToStart;
         
     }
-
+    
     void Update()
     {
         if (GameState == GameStates.ReadyToStart && Input.GetKeyDown(KeyCode.Space))
