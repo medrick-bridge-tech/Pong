@@ -16,8 +16,9 @@ public class Paddle : MonoBehaviour
     void Start()
     {
         _gameSituation = FindObjectOfType<GameSituation>();
-        _spriteRenderer.sprite = _gameSituation.GetPaddleSkin().sprite;
-        _verticalSpeed = _gameSituation.GetPaddleSkin().speed;
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite =_gameSituation.GetPaddleSkin().sprite; 
+        _verticalSpeed = _gameSituation.GetComponent<GameSituation>().GetPaddleSkin().speed;
 
     }
     

@@ -1214,6 +1214,14 @@ PrefabInstance:
       propertyPath: aiDifficulty
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2677178054552704424, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
+      propertyPath: paddleSkin.speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677178054552704424, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
+      propertyPath: paddleSkin.sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd902f7b40b48ac4cb53749e65a33d97, type: 3}
     - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
       propertyPath: m_RootOrder
       value: 4
