@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     {
         GameState = GameStates.ReadyToStart;
         randomObstacleSize = Random.Range(1f, 3f);
+
+        _gameSituation = FindObjectOfType<GameSituation>();
     }
     
     void Update()
@@ -67,7 +69,15 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            _winText.text = "You lose!";
+            if (_gameSituation.GetAISituation())
+            {
+                _winText.text = "You lose!";    
+            }
+            else
+            {
+                _winText.text = "Your friend win!";
+            }
+            
         }
     }
 
