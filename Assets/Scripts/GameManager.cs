@@ -21,17 +21,17 @@ public class GameManager : MonoBehaviour
     public GameStates GameState { get; set; }
 
     [SerializeField] private Ball _ball;
-    
+    [SerializeField] private GameObject obstacle;
+    private float randomObstacleSize;
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private TextMeshProUGUI _winText;
     [SerializeField] private ScoreManager _scoreManager;
+    private GameSituation _gameSituation;
     
-    
-
     void Start()
     {
         GameState = GameStates.ReadyToStart;
-        
+        randomObstacleSize = Random.Range(1f, 3f);
     }
     
     void Update()
@@ -41,6 +41,13 @@ public class GameManager : MonoBehaviour
             _ball.UpdateRandomVector();
             _ball.StartMoving();
             GameState = GameStates.Playing;
+            _gameSituation = FindObjectOfType<GameSituation>();
+            if (_gameSituation.GetObstacleSituation())
+            {
+                GameObject newObstacle = Instantiate(obstacle, Vector3.zero, Quaternion.identity);
+                newObstacle.transform.localScale = new Vector3(newObstacle.transform.localScale.x, randomObstacleSize,
+                    newObstacle.transform.localScale.z);
+            }
         }
 
         if (GameState != GameStates.Playing)

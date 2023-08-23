@@ -8,21 +8,24 @@ using UnityEngine;
 public class GameSituation : MonoBehaviour
 {
     [Header("AI")]
-    [SerializeField] private bool aiActive;
+    [SerializeField] private bool isAIA0ctive;
     [SerializeField][Range(1f,3f)] private float aiDifficulty = 1f;
-
-    [Header("Skin")] [SerializeField] private Sprite skin;
     
+    [Header("Skin")] [SerializeField] private Sprite skin;
+
+    [SerializeField] private bool obstacleActive;
+    
+    //AI
     public bool GetAISituation()
     {
-        return aiActive;
+        return isAIA0ctive;
     }
 
     public void SetAISituation(bool situation)
     {
-        aiActive = situation;
+        isAIA0ctive = situation;
     }
-    // Start is called before the first frame update
+    
     public float GetAIDifficulty()
     {
         return aiDifficulty;
@@ -33,7 +36,17 @@ public class GameSituation : MonoBehaviour
         aiDifficulty = difficulty;
     }
 
-    
+    //Obstacle
+
+    public bool GetObstacleSituation()
+    {
+        return obstacleActive;
+    }
+
+    public void SetObstacleSituation(bool situation)
+    {
+        obstacleActive = situation;
+    }
     void Start()
     {
         
