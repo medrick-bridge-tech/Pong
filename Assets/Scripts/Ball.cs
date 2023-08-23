@@ -19,16 +19,16 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ParticleChangeColor(other.gameObject,Color.blue);
+            ParticleChangeColor(Color.blue);
         }else if (other.gameObject.CompareTag("Enemy"))
         {
-            ParticleChangeColor(other.gameObject,Color.red);
+            ParticleChangeColor(Color.red);
         }
     }
 
-    void ParticleChangeColor(GameObject particle,Color color)
+    void ParticleChangeColor(Color color)
     {
-        particle.GetComponent<ParticleSystem>().startColor = color;
+        ballVFX.GetComponent<ParticleSystem>().startColor = color;
     }
 
     void Start()

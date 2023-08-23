@@ -20,6 +20,7 @@ public class AI : MonoBehaviour
     {
         gameSituation = FindObjectOfType<GameSituation>();
         isAiActive = gameSituation.GetComponent<GameSituation>().GetAISituation();
+        Debug.Log(isAiActive);
         aiDifficulty = gameSituation.GetComponent<GameSituation>().GetAIDifficulty();
         if (isAiActive)
         {
@@ -54,7 +55,7 @@ public class AI : MonoBehaviour
     {
         if (_gameManager.GameState == GameStates.Playing)
         {
-            var verticalMovement = Input.GetAxis("Vertical2") * _verticalSpeed * Time.deltaTime;
+            var verticalMovement = Input.GetAxis("Vertical1") * _verticalSpeed * Time.deltaTime;
         
             transform.position = new Vector3(transform.position.x, 
                 Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);

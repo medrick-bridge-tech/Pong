@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13d59c8f3a6ed88498ef538e12d77ded, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd902f7b40b48ac4cb53749e65a33d97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   _verticalSpeed: 5
   _ball: {fileID: 1316101583}
   _gameManager: {fileID: 1388532361}
-  isAiActive: 1
+  isAiActive: 0
 --- !u!1 &271505549
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,71 +5541,6 @@ MonoBehaviour:
   _gameManager: {fileID: 1388532361}
   _scoreManager: {fileID: 630367166}
   _ball: {fileID: 1316101583}
---- !u!1001 &835284377
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2677178054552704424, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: aiActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704424, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: aiDifficulty
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 263.88092
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 110.30394
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.36805782
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704425, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2677178054552704430, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
-      propertyPath: m_Name
-      value: GameSituation
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7ea6ebcee7cf3ed4ba29142a34152840, type: 3}
 --- !u!1 &1054612772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,8 +6057,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13d59c8f3a6ed88498ef538e12d77ded, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: cd902f7b40b48ac4cb53749e65a33d97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6161,7 +6096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda5864372853643a576ec74353eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _verticalSpeed: 11
+  _verticalSpeed: 5
   _gameManager: {fileID: 1388532361}
 --- !u!68 &1200540616
 EdgeCollider2D:
