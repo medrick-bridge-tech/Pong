@@ -10,14 +10,12 @@ using UnityEngine.Assertions.Must;
 using UnityEngine.Serialization;
 
 
-namespace DefaultNamespace
-{
-    [Serializable]
-    public class Skin
-    {
-        public Sprite sprite;
-        public int price;
-        public float speed;
 
-    }
+[Serializable]
+public class Skin
+{
+    public Sprite sprite;
+    
+    public float speed;
+
 }

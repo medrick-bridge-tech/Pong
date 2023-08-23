@@ -10,7 +10,16 @@ public class Paddle : MonoBehaviour
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private GameManager _gameManager;
 
-    
+    [SerializeField] private GameSituation _gameSituation;
+
+    private SpriteRenderer _spriteRenderer;
+    void Start()
+    {
+        _gameSituation = FindObjectOfType<GameSituation>();
+        _spriteRenderer.sprite = _gameSituation.GetPaddleSkin().sprite;
+        _verticalSpeed = _gameSituation.GetPaddleSkin().speed;
+
+    }
     
     void Update()
     {

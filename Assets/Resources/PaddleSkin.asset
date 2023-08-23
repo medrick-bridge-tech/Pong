@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddleSkin:
   - sprite: {fileID: 21300000, guid: cd902f7b40b48ac4cb53749e65a33d97, type: 3}
-    price: 0
     speed: 5
   - sprite: {fileID: 21300000, guid: b855d75b90dd382458729550d798dff9, type: 3}
-    price: 100
     speed: 10
   - sprite: {fileID: 21300000, guid: 6411f80d708b843459b92f7ae2b40877, type: 3}
-    price: 500
     speed: 15

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private GameSituation _gameSituation;
+    GameSituation _gameSituation;
 
     void Start()
     {

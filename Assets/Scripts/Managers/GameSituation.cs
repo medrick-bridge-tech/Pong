@@ -1,6 +1,8 @@
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 
@@ -8,22 +10,23 @@ using UnityEngine;
 public class GameSituation : MonoBehaviour
 {
     [Header("AI")]
-    [SerializeField] private bool isAIA0ctive;
+    [SerializeField] private bool isAIActive;
     [SerializeField][Range(1f,3f)] private float aiDifficulty = 1f;
-    
-    [Header("Skin")] [SerializeField] private Sprite skin;
 
+    [Header("Skin")]
+    [SerializeField] private Skin paddleSkin;
+    [Header("Obstacle")] 
     [SerializeField] private bool obstacleActive;
     
     //AI
     public bool GetAISituation()
     {
-        return isAIA0ctive;
+        return isAIActive;
     }
 
     public void SetAISituation(bool situation)
     {
-        isAIA0ctive = situation;
+        isAIActive = situation;
     }
     
     public float GetAIDifficulty()
@@ -35,7 +38,21 @@ public class GameSituation : MonoBehaviour
     {
         aiDifficulty = difficulty;
     }
+    
+    //Skin
+    public Skin GetPaddleSkin()
+    {
+        return paddleSkin;
+    }
 
+    public void SetPaddleSkin(Skin skin)
+    {
+        paddleSkin = skin;
+        
+    }
+    
+    
+    
     //Obstacle
 
     public bool GetObstacleSituation()
