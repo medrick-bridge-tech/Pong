@@ -6,15 +6,18 @@ using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
+    
     [SerializeField] private float _startingSpeed;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject ballVFX;
-    
+    [SerializeField] private AudioClip ballHitAudio;
     private float _randomX;
     private float _randomY;
     private Vector2 _randomVector;
     private Rigidbody2D _ballRigidbody;
 
+    private AudioSource _audioSource;
+     
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -24,6 +27,8 @@ public class Ball : MonoBehaviour
         {
             ParticleChangeColor(Color.red);
         }
+        
+        _audioSource.PlayOneShot(ballHitAudio);
     }
 
     void ParticleChangeColor(Color color)
@@ -34,6 +39,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         _ballRigidbody = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         ballVFX.SetActive(false);
     }
 
