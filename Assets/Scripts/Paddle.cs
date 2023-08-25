@@ -10,7 +10,17 @@ public class Paddle : MonoBehaviour
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private GameManager _gameManager;
 
-    
+    [SerializeField] private GameSituation _gameSituation;
+
+    private SpriteRenderer _spriteRenderer;
+    void Start()
+    {
+        _gameSituation = FindObjectOfType<GameSituation>();
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite =_gameSituation.GetPaddleSkin().sprite; 
+        _verticalSpeed = _gameSituation.GetComponent<GameSituation>().GetPaddleSkin().speed;
+
+    }
     
     void Update()
     {
@@ -21,15 +31,12 @@ public class Paddle : MonoBehaviour
     {
         if (_gameManager.GameState == GameStates.Playing)
         {
-            var verticalMovement = Input.GetAxis("Vertical1") * _verticalSpeed * Time.deltaTime;
+            var verticalMovement = Input.GetAxis("Vertical2") * _verticalSpeed * Time.deltaTime;
         
             transform.position = new Vector3(transform.position.x, 
                 Mathf.Clamp(transform.position.y + verticalMovement, MIN_Y_POS, MAX_Y_POS), transform.position.z);
         }
     }
     
-    public void ResetPosition()
-    {
-        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
-    }
+    
 }
