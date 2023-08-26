@@ -47,6 +47,8 @@ public class Score : MonoBehaviour
             {
                 _gameManager.EndGame();
             }
+            
+            FindObjectOfType<Shaker>().Shake(2f,1.29f,2f);
         }
     }
 }

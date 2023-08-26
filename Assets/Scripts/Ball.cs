@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     
     [SerializeField] private float _startingSpeed;
     [SerializeField] private GameManager _gameManager;
-    [SerializeField] private GameObject ballVFX;
+    
     [SerializeField] private AudioClip ballHitAudio;
     private float _randomX;
     private float _randomY;
@@ -20,46 +20,23 @@ public class Ball : MonoBehaviour
      
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            ParticleChangeColor(Color.blue);
-        }else if (other.gameObject.CompareTag("Enemy"))
-        {
-            ParticleChangeColor(Color.red);
-        }
+        
         
         _audioSource.PlayOneShot(ballHitAudio);
     }
 
-    void ParticleChangeColor(Color color)
-    {
-        ballVFX.GetComponent<ParticleSystem>().startColor = color;
-    }
+    
 
     void Start()
     {
         _ballRigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        ballVFX.SetActive(false);
+        
     }
 
-    private void Update()
-    {
-        FlipParticle();
-    }
+    
 
-    private void FlipParticle()
-    {
-        if (_ballRigidbody.velocity.x > 0f)
-        {
-            ballVFX.transform.localScale =
-                new Vector3(ballVFX.transform.localScale.x, ballVFX.transform.localScale.y, -0.5f);
-        }
-        else
-        {
-            ballVFX.transform.localScale = new Vector3(ballVFX.transform.localScale.x , ballVFX.transform.localScale.y , 0.5f);
-        }
-    }
+    
     public void ResetPosition()
     {
         transform.position = Vector3.zero;
@@ -68,6 +45,8 @@ public class Ball : MonoBehaviour
     public void StopMoving()
     {
         _ballRigidbody.velocity = Vector2.zero;
+        gameObject.GetComponent<TrailRenderer>().emitting = false;
+        
     }
     
     public void UpdateRandomVector()
@@ -81,6 +60,7 @@ public class Ball : MonoBehaviour
     {
         _gameManager.GameState = GameStates.Playing;
         _ballRigidbody.velocity = _randomVector * _startingSpeed;
-        ballVFX.SetActive(true);
+        gameObject.GetComponent<TrailRenderer>().emitting = true;
+       
     }
 }
